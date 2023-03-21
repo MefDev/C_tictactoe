@@ -2,6 +2,7 @@
 #define _BOARD_H_
 
 void printBoard();
-void addToBoard();
+void addToBoard(int pos, char pc);
+int checkStatus(char player);
 
 #endif

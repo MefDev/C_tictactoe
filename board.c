@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char board[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+char board[9] = {' ', ' ',' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
 void printBoard()
 {
@@ -22,16 +22,14 @@ void addToBoard(int pos, char pc)
 int checkStatus(char player)
 {
         int i;
-        for (i = 0; i < 9; i+3)
-        {
-                puts("this is for loop");
+        for (i = 0; i < 9; i += 3)
+        {        // 0 3 6  
                 if ((board[i] == board[i+1] == board[i+2]) == player)
-                {
-                        printf("%c %c %c", board[i], board[i+1], board[i+2]);
+                {       printf("%c %c %c", board[i], board[i+1], board[i+2]);
                         return (1);
-                }
-                
+                }       
         }
+        return (0);
 
 }
 

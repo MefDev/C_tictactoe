@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "board.h"
-
 int main(void)
 {
         char player1 = '0';
@@ -12,16 +11,16 @@ int main(void)
         while (!(player1 == 'X' || player1 == 'O'))
         {
                 scanf(" %c", &player1);
-                
+
                 if (player1 == 'q' || player1 == 'Q')
-                       exit(-1);
+                        exit(-1);
         }
-        
+
         puts("Choose a number from 1 to 9");
 
         if (player1 == 'X')
                 player2 = 'O';
-        else 
+        else
                 player2 = 'X';
 
         int pos;
@@ -36,11 +35,11 @@ int main(void)
                 {
                         puts("Position out of range");
                         continue;
-                 }
-                
+                }
+
                 if (played == 0)
                 {
-                        addToBoard (pos - 1, player1);
+                        addToBoard(pos - 1, player1);
                         played = 1;
                 }
                 else
@@ -49,19 +48,24 @@ int main(void)
                         played = 0;
                 }
                 printBoard();
-                
-                if (checkStatus(player1) == 1)
+                int check_pl_1 = checkStatus(player1);
+                int check_pl_2 = checkStatus(player2);
+
+                if (check_pl_1 == 1)
                 {
                         printf("Player %c won\n", player1);
                         break;
                 }
-                
-                else if (checkStatus(player2) == 1)
+
+                if (check_pl_2 == 1)
                 {
                         printf("Player %c won\n", player2);
                         break;
                 }
-
+                else
+                {
+                        printf("Not working");
+                }
         }
-	return (0);
+        return (0);
 }
